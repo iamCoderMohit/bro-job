@@ -1,0 +1,133 @@
+.wrap {
+  background: #fff;
+  border: 1.5px solid #e8edf2;
+  border-radius: 16px;
+  padding: 28px 32px;
+  margin-bottom: 16px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.wrap:hover {
+  border-color: #c5d5f5;
+  box-shadow: 0 4px 24px rgba(59, 100, 255, 0.06);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.stepNum {
+  width: 28px;
+  height: 28px;
+  background: #3b64ff;
+  color: #fff;
+  border-radius: 50%;
+  font-size: 13px;
+  font-weight: 700;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.stepLabel {
+  font-size: 15px;
+  font-weight: 600;
+  color: #0d1117;
+  letter-spacing: -0.01em;
+}
+
+.status {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 20px;
+  background: #e8f5ee;
+  color: #1a8a4a;
+  font-weight: 600;
+}
+
+.zone {
+  border: 1.5px dashed #d0daf0;
+  border-radius: 12px;
+  padding: 32px 24px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.zone:hover {
+  border-color: #3b64ff;
+  background: rgba(59, 100, 255, 0.02);
+}
+
+.zoneUploaded {
+  border-color: #1a8a4a;
+  border-style: solid;
+  background: rgba(26, 138, 74, 0.02);
+}
+
+.icon {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 14px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  font-size: 22px;
+}
+
+.iconIdle { background: #f0f4ff; }
+.iconDone { background: #e8f5ee; }
+
+.title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #0d1117;
+  margin-bottom: 5px;
+  letter-spacing: -0.01em;
+}
+
+.sub {
+  font-size: 12px;
+  color: #8993a4;
+  line-height: 1.5;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.tag {
+  font-size: 12px;
+  color: #5a6787;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  padding: 4px 14px;
+}
+
+.spinner {
+  width: 24px;
+  height: 24px;
+  border: 2px solid #e2e8f0;
+  border-top-color: #3b64ff;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  margin: 0 auto;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}

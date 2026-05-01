@@ -1,0 +1,252 @@
+.section {
+  background: #f4f7f2;
+  padding: 80px 48px 100px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+  min-height: 88vh;
+}
+
+/* ── Left ── */
+.left {
+  animation: fadeUp 0.6s ease both;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #fff;
+  border: 1px solid #e2e8df;
+  border-radius: 20px;
+  padding: 5px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #3b64ff;
+  margin-bottom: 28px;
+  letter-spacing: 0.03em;
+}
+
+.badge::before {
+  content: '';
+  width: 6px; height: 6px;
+  background: #3b64ff;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.5; transform: scale(0.8); }
+}
+
+.heading {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 900;
+  color: #0d1117;
+  line-height: 1.0;
+  letter-spacing: -0.04em;
+  margin-bottom: 24px;
+}
+
+.heading span {
+  color: #3b64ff;
+}
+
+.sub {
+  font-size: 16px;
+  color: #5a6787;
+  line-height: 1.7;
+  max-width: 440px;
+  margin-bottom: 40px;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.btnPrimary {
+  background: #3b64ff;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 14px 28px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  transition: opacity 0.15s, transform 0.1s;
+  letter-spacing: 0.01em;
+}
+
+.btnPrimary:hover {
+  opacity: 0.88;
+  transform: translateY(-2px);
+}
+
+.btnSecondary {
+  font-size: 14px;
+  font-weight: 500;
+  color: #5a6787;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.15s;
+}
+
+.btnSecondary:hover {
+  color: #0d1117;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 36px;
+}
+
+.tag {
+  font-size: 12px;
+  color: #5a6787;
+  border: 1px solid #d5ddd0;
+  border-radius: 20px;
+  padding: 5px 14px;
+  background: #fff;
+}
+
+/* ── Right ── */
+.right {
+  position: relative;
+  animation: fadeUp 0.6s ease 0.15s both;
+}
+
+.mockup {
+  background: #fff;
+  border-radius: 20px;
+  padding: 28px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08), 0 4px 16px rgba(0, 0, 0, 0.04);
+  position: relative;
+  z-index: 2;
+}
+
+.mockupBar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 20px;
+}
+
+.dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+}
+
+.dot:nth-child(1) { background: #ff5f57; }
+.dot:nth-child(2) { background: #febc2e; }
+.dot:nth-child(3) { background: #28c840; }
+
+.mockupLabel {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #aab4c4;
+  margin-bottom: 10px;
+}
+
+.mockupText {
+  font-size: 13px;
+  color: #3d4a5c;
+  line-height: 1.7;
+  background: #f8fafc;
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 16px;
+  border: 1px solid #e8edf2;
+}
+
+.mockupResult {
+  background: rgba(26, 138, 74, 0.05);
+  border: 1.5px solid rgba(26, 138, 74, 0.2);
+  border-radius: 10px;
+  padding: 16px;
+}
+
+.mockupResultHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.mockupResultLabel {
+  font-size: 11px;
+  font-weight: 600;
+  color: #aab4c4;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.mockupScore {
+  font-size: 11px;
+  font-weight: 700;
+  color: #1a8a4a;
+  background: #e8f5ee;
+  border-radius: 20px;
+  padding: 3px 10px;
+}
+
+.mockupSummary {
+  font-size: 13px;
+  color: #3d4a5c;
+  line-height: 1.6;
+}
+
+/* decorative blob */
+.blob {
+  position: absolute;
+  width: 300px; height: 300px;
+  background: #3b64ff;
+  border-radius: 50%;
+  top: -40px; right: -40px;
+  opacity: 0.06;
+  filter: blur(60px);
+  z-index: 1;
+  pointer-events: none;
+}
+
+@media (max-width: 1024px) {
+  .section {
+    grid-template-columns: 1fr;
+    padding: 60px 32px 80px;
+    min-height: auto;
+    gap: 48px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 48px 24px 64px;
+  }
+  .actions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .btnPrimary {
+    width: 100%;
+    text-align: center;
+  }
+  .right {
+    display: none;
+  }
+}

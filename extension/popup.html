@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>tldr.apply</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <span class="logo">tldr<span class="logo-dot">.</span>apply</span>
+    <span class="version">v1.0</span>
+  </header>
+
+  <!-- Resume section -->
+  <section class="section" id="resume-section">
+    <div class="section-header">
+      <span class="step-num">1</span>
+      <span class="section-label">Your resume</span>
+      <span class="status-badge" id="resume-badge" style="display:none">✓ Ready</span>
+    </div>
+
+    <div class="upload-zone" id="upload-zone">
+      <div class="upload-icon" id="upload-icon">⬆</div>
+      <div class="upload-title" id="upload-title">Upload your resume</div>
+      <div class="upload-sub" id="upload-sub">PDF only · saved locally</div>
+    </div>
+
+    <input type="file" id="resume-input" accept=".pdf" style="display:none" />
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- Job section -->
+  <section class="section">
+    <div class="section-header">
+      <span class="step-num">2</span>
+      <span class="section-label">Job on this page</span>
+    </div>
+
+    <div class="page-info" id="page-info">
+      Detecting job description...
+    </div>
+  </section>
+
+  <!-- Error -->
+  <div class="error-banner" id="error-banner" style="display:none">
+    <span>⚠</span>
+    <span id="error-message"></span>
+  </div>
+
+  <!-- CTA -->
+  <button class="btn" id="analyse-btn" disabled>
+    Analyse Job →
+  </button>
+
+  <!-- Results -->
+  <div class="results" id="results" style="display:none">
+    <div class="divider"></div>
+
+    <div class="result-label">Summary</div>
+    <div class="summary-box" id="summary-box"></div>
+
+    <div id="match-section" style="display:none">
+      <div class="result-label" style="margin-top: 14px">Fit Score</div>
+      <div class="match-box" id="match-box">
+        <div class="match-header">
+          <span class="match-title">Your resume vs this role</span>
+          <span class="score-pill" id="score-pill"></span>
+        </div>
+        <p class="reasoning" id="reasoning"></p>
+        <div id="gaps-section" style="display:none">
+          <div class="gaps-label">Gaps to address</div>
+          <div class="gaps" id="gaps"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+  // Keeps popup alive when file dialog opens
+  window.addEventListener("focus", () => {}, true);
+</script>
+  <script src="config.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

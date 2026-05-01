@@ -1,34 +1,46 @@
 import { NextRequest, NextResponse } from "next/server";
-import { extractTextFromPDF } from "@/lib/resume-parser";
+import { matchJDToResume } from "@/lib/gemini";
 
 export async function POST(req: NextRequest) {
   try {
-    const formData = await req.formData();
-    const file = formData.get("resume") as File | null;
+    const body = await req.json();
+    const { jobDescription, resumeText } = body;
 
-    if (!file) {
+    if (!jobDescription || typeof jobDescription !== "string") {
       return NextResponse.json(
-        { error: "No resume file provided" },
+        { error: "jobDescription is required" },
         { status: 400 }
       );
     }
 
-    if (file.type !== "application/pdf") {
+    if (!resumeText || typeof resumeText !== "string") {
       return NextResponse.json(
-        { error: "Only PDF files are supported" },
+        { error: "resumeText is required" },
         { status: 400 }
       );
     }
 
-    const arrayBuffer = await file.arrayBuffer();
-    const buffer = Buffer.from(arrayBuffer);
-    const resumeText = await extractTextFromPDF(buffer);
+    if (jobDescription.trim().length < 50) {
+      return NextResponse.json(
+        { error: "Job description is too short" },
+        { status: 400 }
+      );
+    }
 
-    return NextResponse.json({ resumeText });
+    if (resumeText.trim().length < 50) {
+      return NextResponse.json(
+        { error: "Resume text is too short" },
+        { status: 400 }
+      );
+    }
+
+    const match = await matchJDToResume(jobDescription, resumeText);
+
+    return NextResponse.json({ match });
   } catch (error) {
-    console.error("[parse-resume] error:", error);
+    console.error("[match] error:", error);
     return NextResponse.json(
-      { error: "Failed to parse resume" },
+      { error: "Failed to match job description against resume" },
       { status: 500 }
     );
   }

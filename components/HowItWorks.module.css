@@ -1,0 +1,129 @@
+.section {
+  background: #0d1117;
+  padding: 100px 48px;
+}
+
+.inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.top {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 64px;
+}
+
+.label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #3b64ff;
+  margin-bottom: 12px;
+}
+
+.heading {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  color: #f4f7f2;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.sub {
+  font-size: 14px;
+  color: #6b7280;
+  max-width: 280px;
+  line-height: 1.6;
+  text-align: right;
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+}
+
+.step {
+  background: #111318;
+  padding: 36px 32px;
+  position: relative;
+  transition: background 0.2s;
+}
+
+.step:first-child { border-radius: 16px 0 0 16px; }
+.step:last-child  { border-radius: 0 16px 16px 0; }
+
+.step:hover { background: #161b24; }
+
+.stepNum {
+  font-family: 'Fraunces', serif;
+  font-size: 56px;
+  font-weight: 900;
+  color: #1f2128;
+  line-height: 1;
+  margin-bottom: 20px;
+  letter-spacing: -0.04em;
+}
+
+.stepIcon {
+  font-size: 28px;
+  margin-bottom: 16px;
+}
+
+.stepTitle {
+  font-family: 'Fraunces', serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #f4f7f2;
+  margin-bottom: 10px;
+  letter-spacing: -0.02em;
+}
+
+.stepDesc {
+  font-size: 13px;
+  color: #6b7280;
+  line-height: 1.7;
+}
+
+.connector {
+  position: absolute;
+  right: -20px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #2a2d38;
+  font-size: 20px;
+  z-index: 2;
+}
+
+@media (max-width: 1024px) {
+  .section {
+    padding: 80px 32px;
+  }
+  .steps {
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
+  .step:first-child { border-radius: 16px 16px 0 0; }
+  .step:last-child  { border-radius: 0 0 16px 16px; }
+  .connector {
+    display: none;
+  }
+  .top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .sub {
+    text-align: left;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 64px 24px;
+  }
+}
