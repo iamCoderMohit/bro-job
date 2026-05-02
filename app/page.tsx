@@ -4,6 +4,7 @@ import HowItWorks from "@/components/HowItWorks";
 import Features from "@/components/Features";
 import Footer from "@/components/Footer";
 import DownloadExtension from "@/components/DownloadExtension";
+import DemoVideo from "@/components/DemoVideo";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
       <main>
         <Hero />
         <DownloadExtension />
+        <DemoVideo />
         <HowItWorks />
         <Features />
       </main>

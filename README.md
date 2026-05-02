@@ -4,7 +4,7 @@
 
 Paste any job description and get a 2-sentence summary instantly. Upload your resume once and know if you're a strong fit — before you spend an hour applying.
 
-**Live demo:** [bro.job](https://your-app.vercel.app) · **Chrome Extension:** [Download](#)
+**Live demo:** [bro.job](https://bro-job.vercel.app/) · **Chrome Extension:** [Download](#)
 
 ---
 

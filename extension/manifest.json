@@ -14,8 +14,7 @@
   ],
 
   "host_permissions": [
-    "https://your-deployed-app.vercel.app/*",
-    "http://localhost:3000/*"
+    "https://bro-job.vercel.app/"
   ],
 
   "action": {
