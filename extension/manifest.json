@@ -4,6 +4,8 @@
   "version": "1.0.0",
   "description": "Instantly summarise any job description and check your fit — without leaving the page.",
 
+  "options_page": "options.html",
+
   "permissions": [
     "activeTab",
     "scripting",

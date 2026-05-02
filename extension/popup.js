@@ -40,69 +40,11 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // ─── Resume: upload ──────────────────────────────────────────────────────────
-  uploadZone.addEventListener("click", (e) => {
-    e.stopPropagation();
-    e.preventDefault();
-    resumeInput.value = ""
-    setTimeout(() => resumeInput.click(), 10);
+  uploadZone.addEventListener("click", () => {
+    chrome.runtime.openOptionsPage()
   });
 
-  uploadZone.addEventListener("dragover", (e) => {
-    e.preventDefault();
-    uploadZone.classList.add("drag-over");
-  });
 
-  uploadZone.addEventListener("dragleave", () => {
-    uploadZone.classList.remove("drag-over");
-  });
-
-  uploadZone.addEventListener("drop", (e) => {
-    e.preventDefault();
-    uploadZone.classList.remove("drag-over");
-    const file = e.dataTransfer.files[0];
-    if (file) handleResumeFile(file);
-  });
-
-  resumeInput.addEventListener("change", () => {
-    const file = resumeInput.files[0];
-    if (file) handleResumeFile(file);
-  });
-
-  async function handleResumeFile(file) {
-    if (file.type !== "application/pdf") {
-      showError("Only PDF files are supported.");
-      return;
-    }
-
-    resumeInput.value = ""
-    showResumeLoading();
-    hideError();
-
-    try {
-      const formData = new FormData();
-      formData.append("resume", file);
-
-      const res = await fetch(`${CONFIG.API_BASE_URL}/api/parse-resume`, {
-        method: "POST",
-        body: formData,
-      });
-
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.error || "Failed to parse resume.");
-
-      resumeText = data.resumeText;
-      await chrome.storage.local.set({
-        resumeText: data.resumeText,
-        resumeName: file.name,
-      });
-
-      showResumeStored(file.name);
-      hideError();
-    } catch (err) {
-      showError(err.message);
-      showResumeEmpty();
-    }
-  }
 
   // ─── Job text: grab from current tab ─────────────────────────────────────────
   async function grabJobText() {

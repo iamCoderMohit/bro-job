@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>bro.job — Resume Setup</title>
+  <link rel="stylesheet" href="popup.css" />
+  <style>
+    body {
+      width: 480px;
+      margin: 40px auto;
+      padding: 0 24px;
+    }
+
+    .page-title {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .page-sub {
+      font-size: 13px;
+      color: #888;
+      margin-bottom: 24px;
+    }
+
+    .done-hint {
+      font-size: 12px;
+      color: #aaa;
+      margin-top: 16px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="page-title">bro<span style="color:#3b64ff">.</span>job</div>
+  <p class="page-sub">Upload your resume once — it's saved locally in your browser and never sent anywhere except to analyse a job.</p>
+
+  <div class="upload-zone" id="upload-zone">
+    <div class="upload-icon" id="upload-icon">⬆</div>
+    <div class="upload-title" id="upload-title">Click to upload your resume</div>
+    <div class="upload-sub" id="upload-sub">PDF only · saved locally</div>
+  </div>
+
+  <input type="file" id="resume-input" accept=".pdf" style="display:none" />
+
+  <div class="error-banner" id="error-banner" style="display:none">
+    <span>⚠</span>
+    <span id="error-message"></span>
+  </div>
+
+  <p class="done-hint">You can close this tab when done. Your resume will be ready in the extension.</p>
+
+  <script src="config.js"></script>
+  <script src="options.js"></script>
+</body>
+</html>
